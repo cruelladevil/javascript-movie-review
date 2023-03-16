@@ -186,7 +186,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getPopularMovies\": () => (/* binding */ getPopularMovies),\n/* harmony export */   \"searchMovies\": () => (/* binding */ searchMovies)\n/* harmony export */ });\nvar __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\nconst API_TOKEN = \"MISSING_ENV_VAR\".API_TOKEN;\nconst BASE_URL = 'https://api.themoviedb.org/3';\nconst getPopularMovies = ({ page }) => __awaiter(void 0, void 0, void 0, function* () {\n    const query = `page=${page}&region=KR&language=ko-KR`;\n    const response = yield fetch(`${BASE_URL}/movie/popular?${query}`, {\n        method: 'GET',\n        headers: {\n            Authorization: `Bearer ${API_TOKEN}`,\n        },\n    });\n    const movies = yield response.json();\n    return movies;\n});\nconst searchMovies = ({ text, page }) => __awaiter(void 0, void 0, void 0, function* () {\n    const query = `query=${text}&page=${page}&language=ko-KR&region=KR`;\n    const response = yield fetch(`${BASE_URL}/search/movie?${query}`, {\n        method: 'GET',\n        headers: {\n            Authorization: `Bearer ${API_TOKEN}`,\n        },\n    });\n    const movies = yield response.json();\n    return movies;\n});\n\n\n\n//# sourceURL=webpack://javascript-movie-review/./src/service/movie.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getPopularMovies\": () => (/* binding */ getPopularMovies),\n/* harmony export */   \"searchMovies\": () => (/* binding */ searchMovies)\n/* harmony export */ });\nvar __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\nconst API_TOKEN = \"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZWRmNjU0MjIyMjEzOTA1NDQ0ODUyZDdhNzAwNzlkMyIsInN1YiI6IjY0MGE2ZjhlOTVhY2YwMDA4NjAzZjQyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pM7yroYRHese8G9yUue9rp0WCMlyiwiVxRRhBDONFq0\";\nconst BASE_URL = 'https://api.themoviedb.org/3';\nconst getPopularMovies = ({ page }) => __awaiter(void 0, void 0, void 0, function* () {\n    const query = `page=${page}&region=KR&language=ko-KR`;\n    const response = yield fetch(`${BASE_URL}/movie/popular?${query}`, {\n        method: 'GET',\n        headers: {\n            Authorization: `Bearer ${API_TOKEN}`,\n        },\n    });\n    const movies = yield response.json();\n    return movies;\n});\nconst searchMovies = ({ text, page }) => __awaiter(void 0, void 0, void 0, function* () {\n    const query = `query=${text}&page=${page}&language=ko-KR&region=KR`;\n    const response = yield fetch(`${BASE_URL}/search/movie?${query}`, {\n        method: 'GET',\n        headers: {\n            Authorization: `Bearer ${API_TOKEN}`,\n        },\n    });\n    const movies = yield response.json();\n    return movies;\n});\n\n\n\n//# sourceURL=webpack://javascript-movie-review/./src/service/movie.ts?");
 
 /***/ }),
 
@@ -274,6 +274,18 @@ eval("module.exports = __webpack_require__.p + \"./assets/star_filled.png\";\n\n
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -292,7 +304,22 @@ eval("module.exports = __webpack_require__.p + \"./assets/star_filled.png\";\n\n
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "/";
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
